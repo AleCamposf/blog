@@ -4,13 +4,14 @@ require_once '../core/conexao_mysql.php';
 require_once '../core/sql.php';
 require_once '../core/mysql.php';
 
-insert_teste ('5', 'Melhorem','1','1');
+insert_teste ('10', 'muito bom','1','3');
 buscar_teste();
-update_teste(1, '9', 'Melhorou','1','1');
+update_teste(1, '7', 'bom até','1','3');
 buscar_teste();
 
 //Teste inserção banco de dados
 function insert_teste($nota, $comentario, $usuario_id, $post_id): void{
+
     $dados = ['nota' => $nota, 'comentario' => $comentario, 'usuario_id' => $usuario_id, 'post_id' => $post_id]; 
     insere ('avaliacao', $dados);
 }
@@ -23,8 +24,10 @@ function buscar_teste(): void{
 
 //Teste update banco de dados
 function update_teste($id, $nota, $comentario, $usuario_id, $post_id): void{
+
     $dados = ['nota' => $nota, 'comentario' => $comentario, 'usuario_id' => $usuario_id, 'post_id' => $post_id];
     $criterio = [['id', '=', $id]];
     atualiza('avaliacao', $dados, $criterio);
 }
+
 ?>
